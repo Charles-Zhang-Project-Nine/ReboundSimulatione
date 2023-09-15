@@ -140,6 +140,11 @@ def parse_file(path, unit_scale, frame_duration):
             data.append(tuple)
     
     generate_visuals(meta, data, frame_duration)
+    
+    # Configure blender file settings for animation preview
+    bpy.context.scene.frame_preview_start = 0 # Frame 0 is the initial condition
+    bpy.context.scene.frame_preview_end = int(meta['Frames']) * frame_duration
+    bpy.context.scene.use_preview_range = True # Set real time
 
 import os
 data_path = os.environ['PROJECT_REBOUND_DATA_FILE_PATH']

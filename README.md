@@ -5,4 +5,9 @@ The immediate goal is to find stable configurations and predicted future traject
 
 Notice due to the nature of a public fork, this repo is public. In that case, we should avoid referencing Project Nine contents and try to keep this repo a pure-simulation environment.
 
-From a software-development perspective, the best way to utilize this is to: 1) Data-driven everything first, 2) Develop and package the software as a proper CLI tool. However, for the purpose of this project, we will just edit in-place and use as-is for immedaite needs. The "tooling" aspect can be done in a seperate fork.
+This code follows original repository setup and utilizes folders inside "examples" For experiment setups. To compile and run any experiment, go to corresponding experiment folder, perform a `make` and run. The C codes will only work on Linux.  
+From a software-development perspective, the best way to utilize this is to: 1) Data-driven everything first, 2) Develop and package the software as a proper CLI tool. However, for the purpose of this project, we will just edit in-place and use as-is for immedaite needs. The "tooling" aspect can be done in a seperate fork. See [OriginalREADME](./OriginalREADME.md) for original README file.
+
+Below are the Project Nine specific setups:
+
+1. Doma: [./examples/doma](./examples/doma)

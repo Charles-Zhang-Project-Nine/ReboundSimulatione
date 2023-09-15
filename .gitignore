@@ -47,3 +47,7 @@ problems/
 *.pete
 examples/solar_system_tes
 rebound.html
+
+# Experiment: Doma
+examples/doma/Doma
+examples/doma/output.txt

@@ -36,3 +36,7 @@ problems/
 .vscode/
 *.pete
 examples/solar_system_tes
+
+# Experiment: Doma
+examples/doma/Doma
+examples/doma/output.txt

@@ -4,9 +4,12 @@ include ../../src/Makefile.defs
 all: librebound
 	@echo ""
 	@echo "Compiling problem file ..."
-	$(CC) -I../../src/ -Wl,-rpath,./ $(OPT) $(PREDEF) problem.c -L. -lrebound $(LIB) -o rebound
+	$(CC) -I../../src/ -Wl,-rpath,./ $(OPT) $(PREDEF) problem.c -L. -lrebound $(LIB) -o Doma
 	@echo ""
-	@echo "REBOUND compiled successfully."
+	@echo "Problem compiled successfully."
+	
+	@echo "Execute..."
+	./Doma > output.txt
 
 librebound: 
 	@echo "Compiling shared library librebound.so ..."

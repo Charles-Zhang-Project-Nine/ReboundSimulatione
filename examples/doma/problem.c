@@ -39,8 +39,8 @@ int main(int argc, char* argv[]) {
     struct reb_simulation* r = reb_create_simulation();
 
     // Parameters
-    int iterations = 50;
-    double timestep = 50.;
+    int iterations = 500;
+    double timestep = 10.;
 
     // Setup
     const char* names[] = { "Doma", "Ids", "Fukxim" };

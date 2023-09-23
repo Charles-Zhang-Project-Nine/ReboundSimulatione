@@ -40,14 +40,15 @@ int main(int argc, char* argv[]) {
 
     // Parameters
     int iterations = 500;
-    double timestep = 10.;
+    double timestep = 1;
 
     // Setup
-    const char* names[] = { "Doma", "Ids", "Fukxim" };
-    reb_add_fmt(r, "m", 1.0);                    // Doma
-    reb_add_fmt(r, "m a e", 1e-3, 1.0, 0.1);     // Ids
-    reb_add_fmt(r, "m a e", 2e-3, -1.4, 1.1);    // Fukxim 
-
+    const char* names[] = { "Doma", "Ids", "Fukxim"};
+    reb_add_fmt(r, "m", 1.0);                               // Doma
+    reb_add_fmt(r, "m a e", 1e-3, 1.0, 0.1);                // Ids
+    reb_add_fmt(r, "m a e inc", 2e-3, 1.4, 0.446, 1.13);    // Fukxim
+    printf("### Project REBOUND: 20230923 Doma System Rev2\n");
+    
     // Meta-data
     // Format: Key: Value
     printf("# Metadata\n");

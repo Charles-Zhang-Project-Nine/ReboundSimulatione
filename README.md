@@ -2,7 +2,7 @@ THIS PROJECT CAN LIKELY BE REPLACED WITH BLENDER OR HOUDINI, WITH ENOUGH SIMULAT
 
 # Project Rebound
 
-Version: v0.1 (Change from Base)
+Version: v4.5.1-pr (Change from Base)
 
 Project Rebound utilizes Hanno Rein 's N-body [simulation library](https://github.com/hannorein/rebound) for the purpose of simulation setup for systems within Project Nine ("Simulatione"). 
 

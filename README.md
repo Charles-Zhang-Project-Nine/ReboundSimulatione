@@ -2,6 +2,8 @@ THIS PROJECT CAN LIKELY BE REPLACED WITH BLENDER OR HOUDINI, WITH ENOUGH SIMULAT
 
 # Project Rebound
 
+Version: v0.1 (Change from Base)
+
 Project Rebound utilizes Hanno Rein 's N-body [simulation library](https://github.com/hannorein/rebound) for the purpose of simulation setup for systems within Project Nine ("Simulatione"). 
 
 The immediate goal is to find stable configurations and predicted future trajections for the Doma and X13 systems. Consult P9 for more detailed definition on this project.
@@ -20,7 +22,33 @@ Below are the Project Nine specific setups:
 
 1. Doma: [./examples/doma](./examples/doma)
 
+## Usage
+
+On windows:
+
+* Just open Visual Studio solution then go wild
+  
+On Linux:
+
+* Follow examples in `examples`
+* Create make file for building
+
+## Setup
+
+Those are notable changes:
+
+1. Created experiments for Project Nine, which we may clean out in the future
+2. Changed README
+3. Added Visual Studio project
+4. Made changes to source files so it compiles with MSVC
+
+Other than those, this repo keeps minimal changes to base repo.
+In general, we try to limit footprints (keep changes files small). 
+
 ## Compiled DLLs
 
-This source code repo will only compile on Linux.
-To grab Windows dlls, use Python.
+This source code repo will compile on Linux with `make` and on Windows with `Visual Studio`.
+
+Notice the official python build by author uses python extension module so no ready-to-use dlls is available.
+
+To grab Windows dlls, visit [Release page](https://github.com/Charles-Zhang-Project-Nine/ReboundSimulatione/releases).

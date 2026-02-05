@@ -507,7 +507,7 @@ void reb_simulation_save_to_file(struct reb_simulation* const r, const char* fil
         reb_simulation_save_to_stream(r, &buf_new, &size_new);
 
         // Create buffer containing diff
-        char* buf_diff;
+        char* buf_diff = NULL;
         size_t size_diff;
         reb_binary_diff(buf_old, size_old, buf_new, size_new, &buf_diff, &size_diff, 0);
 

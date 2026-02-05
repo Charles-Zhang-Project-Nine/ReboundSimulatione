@@ -440,9 +440,9 @@ void reb_simulation_copy_with_messages(struct reb_simulation* r_copy,  struct re
 }
 
 char* reb_simulation_diff_char(struct reb_simulation* r1, struct reb_simulation* r2){
-    char* bufp1;
-    char* bufp2;
-    char* bufp;
+    char* bufp1 = NULL;
+    char* bufp2 = NULL;
+    char* bufp = NULL;
     size_t sizep1, sizep2, size;
     reb_simulation_save_to_stream(r1, &bufp1,&sizep1);
     reb_simulation_save_to_stream(r2, &bufp2,&sizep2);

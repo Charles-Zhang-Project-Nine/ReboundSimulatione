@@ -51,6 +51,7 @@ rebound.html
 # Local Branch
 .vs
 Debug
+Release
 Bin
 # Visual Studio
 windows/LibRebound/LibRebound.vcxproj.filters

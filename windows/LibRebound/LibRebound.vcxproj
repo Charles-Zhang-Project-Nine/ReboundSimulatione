@@ -154,6 +154,7 @@
     <ClCompile Include="..\..\src\integrator_trace.c" />
     <ClCompile Include="..\..\src\integrator_whfast.c" />
     <ClCompile Include="..\..\src\integrator_whfast512.c" />
+    <ClCompile Include="..\..\src\oop.c" />
     <ClCompile Include="..\..\src\output.c" />
     <ClCompile Include="..\..\src\particle.c" />
     <ClCompile Include="..\..\src\rebound.c" />

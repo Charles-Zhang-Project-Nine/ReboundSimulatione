@@ -87,7 +87,6 @@ int rand_r (unsigned int *seed);
 #  define  __attribute__(x)  /*Ignore attributes in non-GNU compilers*/
 #endif
 
-
 // Global constants and variables
 DLLEXPORT extern const char* reb_build_str;   ///< Date and time build string.
 DLLEXPORT extern const char* reb_version_str; ///< Version string.
@@ -1429,4 +1428,7 @@ DLLEXPORT void reb_whfast_interaction_step(struct reb_simulation* const r, const
 DLLEXPORT void reb_whfast_jump_step(const struct reb_simulation* const r, const double _dt); ///< Internal function
 DLLEXPORT void reb_whfast_kepler_step(const struct reb_simulation* const r, const double _dt); ///< Internal function
 DLLEXPORT void reb_whfast_com_step(const struct reb_simulation* const r, const double _dt); ///< Internal function
+
+// OOP shim
+DLLEXPORT void reb_set_heartbeat(struct reb_simulation* r, void (*hb)(struct reb_simulation*));
 #endif // _MAIN_H

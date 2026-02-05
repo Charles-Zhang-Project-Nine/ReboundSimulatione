@@ -512,7 +512,7 @@ void reb_simulation_save_to_file(struct reb_simulation* const r, const char* fil
         reb_binary_diff(buf_old, size_old, buf_new, size_new, &buf_diff, &size_diff, 0);
 
         int file_corrupt = 0;
-        int seek_ok = fseek(of, -sizeof(struct reb_simulationarchive_blob), SEEK_END);
+        int seek_ok = fseek(of, -(int64_t)sizeof(struct reb_simulationarchive_blob), SEEK_END);
         int blobs_read = (int)fread(&blob, sizeof(struct reb_simulationarchive_blob), 1, of);
         if (seek_ok !=0 || blobs_read != 1){ // cannot read blob
             file_corrupt = 1;
@@ -522,7 +522,7 @@ void reb_simulation_save_to_file(struct reb_simulation* const r, const char* fil
         }
         if (file_corrupt==0 && archive_contains_more_than_one_blob ){
             // Check if last two blobs are consistent.
-            seek_ok = fseek(of, - sizeof(struct reb_simulationarchive_blob) - sizeof(struct reb_binary_field), SEEK_CUR);  
+            seek_ok = fseek(of, -(int64_t)sizeof(struct reb_simulationarchive_blob) - (int64_t)sizeof(struct reb_binary_field), SEEK_CUR);
             bytesread = (int)fread(&field, sizeof(struct reb_binary_field), 1, of);
             if (seek_ok!=0 || bytesread!=1){
                 file_corrupt = 1;
@@ -547,7 +547,7 @@ void reb_simulation_save_to_file(struct reb_simulation* const r, const char* fil
             int64_t last_blob = size_old + sizeof(struct reb_simulationarchive_blob);
             do
             {
-                seek_ok = fseek(of, -sizeof(struct reb_binary_field), SEEK_CUR);
+                seek_ok = fseek(of, -(int64_t)sizeof(struct reb_binary_field), SEEK_CUR);
                 if (seek_ok != 0){
                     break;
                 }
@@ -578,10 +578,12 @@ void reb_simulation_save_to_file(struct reb_simulation* const r, const char* fil
         }
 
         // Update blob info and Write diff to binary file
-        fseek(of, -sizeof(struct reb_simulationarchive_blob), SEEK_CUR);  
+        fseek(of, -(int64_t)sizeof(struct reb_simulationarchive_blob), SEEK_CUR);
         fread(&blob, sizeof(struct reb_simulationarchive_blob), 1, of);
-        blob.offset_next = (int32_t)size_diff+sizeof(struct reb_binary_field);
-        fseek(of, -sizeof(struct reb_simulationarchive_blob), SEEK_CUR);  
+
+        blob.offset_next = (int32_t)size_diff+(int64_t)sizeof(struct reb_binary_field);
+
+        fseek(of, -(int64_t)sizeof(struct reb_simulationarchive_blob), SEEK_CUR);
         fwrite(&blob, sizeof(struct reb_simulationarchive_blob), 1, of);
         fwrite(buf_diff, size_diff, 1, of); 
         field.type = fd_end.type;

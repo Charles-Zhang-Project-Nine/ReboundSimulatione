@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="windows/LibRebound/LibRebound.vcxproj" Id="d39cde09-7bb8-4015-973e-2d57694298da" />
+</Solution>

@@ -48,6 +48,13 @@ problems/
 examples/solar_system_tes
 rebound.html
 
+# Local Branch
+.vs
+Debug
+Bin
+# Visual Studio
+windows/LibRebound/LibRebound.vcxproj.filters
+windows/LibRebound/LibRebound.vcxproj.user
 # Experiment: Doma
 examples/doma/Doma
 examples/doma/output.txt

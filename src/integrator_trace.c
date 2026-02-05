@@ -751,7 +751,6 @@ static void reb_integrator_trace_step(struct reb_simulation* const r){
                     // TODO: Syntax should be similar to IAS
                     struct reb_ode* nbody_ode = NULL;
 
-                    double* y;
                     while(r->t < t_needed && fabs(r->dt/old_dt)>1e-14 && r->status<=0){
                         if (!nbody_ode || nbody_ode->length != 6*r->N){
                             if (nbody_ode){
@@ -760,10 +759,10 @@ static void reb_integrator_trace_step(struct reb_simulation* const r){
                             nbody_ode = reb_ode_create(r, 6*r->N);
                             nbody_ode->derivatives = nbody_derivatives;
                             nbody_ode->needs_nbody = 0;
-                            y = nbody_ode->y;
                             reb_integrator_bs_reset(r);
                         }
 
+                        double* y = nbody_ode->y;
                         for (unsigned int i=0; i<r->N; i++){
                             const struct reb_particle p = r->particles[i];
                             y[i*6+0] = p.x;
